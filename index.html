@@ -20,27 +20,72 @@
            }
            return computerChoice;
 
-       }
+       };
 
        console.log(computerPlay());
-       
        /*
-          Then user chooses a weapon by inputting choice. */
+          Then user chooses a weapon by inputting choice. 
        function userPlay() {
-           let playerInput =  prompt('Choose rock, paper, or scissors');
+           let playerInput =  prompt('Choose rock, paper, or scissors').toLowerCase();
+           
            return playerInput;
        }
 
-       console.log(userPlay());
+       console.log(userPlay());*/
+
+       /*
+          Then decide who is the winner of this round. */
+
+         function determineWinner (playerSelection, computerSelection) {
+             
+             if (playerSelection === 'rock') {
+                 if (computerSelection === 'paper') {
+                     return 'The computer wins this round';
+                 } else if (computerSelection === 'scissors') {
+                     return 'You win this round';
+                 } else {
+                     return 'It\'s a tie';
+                 }
+             }
+             if (playerSelection === 'paper') {
+                 if (computerSelection === 'rock') {
+                     return 'You win this round';
+                 } else if (computerSelection === 'scissors') {
+                     return 'The computer wins this round';
+                 } else {
+                     return 'It\'s a tie';
+                 }
+             }
+             if (playerSelection === 'scissors') {
+                 if (computerSelection === 'rock') {
+                     return 'The computer wins this round';
+                 } else if (computerSelection === 'paper') {
+                     return 'You win this round';
+                 } else {
+                     return 'It\'s a tie';
+                 }
+             }
+         }
+
+         function playRound() {
+             let playerSelection = prompt('Choose rock, paper, or scissors').toLowerCase();
+             let computerSelection = computerPlay();
+             console.log(determineWinner(playerSelection, computerSelection));
+         }
+
+         console.log(playRound());
+
+          
+
+          
+       
+       
+
+      
 
 
-        /*
-          Then decide who is the winner of this round.*/
-       function roundRockPaperScissors(computerSelection, userSelection) {
-           let computerSelection = computerPlay();
-           let userSelection = userPlay.toLowerCase();
-           
-       }
+        
+      
         /*
           Repeat, best of 5
           Announce who winner is */ 
