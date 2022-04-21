@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+       /* First the computer randomly chooses a weapon. */
+       function computerPlay() {
+           let randomNum = Math.floor(Math.random()*3);
+           if (randomNum < 1) {
+               computerChoice = 'rock';
+           } else if (randomNum < 2) {
+               computerChoice = 'paper';
+           } else {
+               computerChoice = 'scissors';
+           }
+           return computerChoice;
+
+       }
+
+       console.log(computerPlay());
+       
+       /*
+          Then user chooses a weapon by inputting choice. */
+       function userPlay() {
+           let playerInput =  prompt('Choose rock, paper, or scissors');
+           return playerInput;
+       }
+
+       console.log(userPlay());
+
+
+        /*
+          Then decide who is the winner of this round.*/
+       function roundRockPaperScissors(computerSelection, userSelection) {
+           let computerSelection = computerPlay();
+           let userSelection = userPlay.toLowerCase();
+           
+       }
+        /*
+          Repeat, best of 5
+          Announce who winner is */ 
+    </script>
+</body>
+</html>
