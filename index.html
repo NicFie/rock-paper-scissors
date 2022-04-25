@@ -1,94 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
+
 <body>
     <script>
-       /* First the computer randomly chooses a weapon. */
-       function computerPlay() {
-           let randomNum = Math.floor(Math.random()*3);
-           if (randomNum < 1) {
-               computerChoice = 'rock';
-           } else if (randomNum < 2) {
-               computerChoice = 'paper';
-           } else {
-               computerChoice = 'scissors';
-           }
-           return computerChoice;
+        /*
+        Create computer selection variable. */
+        
+        let computerSelection = "";
+ 
+        /* Create user selection variable. */
 
-       };
-
-       console.log(computerPlay());
-       /*
-          Then user chooses a weapon by inputting choice. 
-       function userPlay() {
-           let playerInput =  prompt('Choose rock, paper, or scissors').toLowerCase();
-           
-           return playerInput;
-       }
-
-       console.log(userPlay());*/
-
-       /*
-          Then decide who is the winner of this round. */
-
-         function determineWinner (playerSelection, computerSelection) {
-             
-             if (playerSelection === 'rock') {
-                 if (computerSelection === 'paper') {
-                     return 'The computer wins this round';
-                 } else if (computerSelection === 'scissors') {
-                     return 'You win this round';
-                 } else {
-                     return 'It\'s a tie';
-                 }
-             }
-             if (playerSelection === 'paper') {
-                 if (computerSelection === 'rock') {
-                     return 'You win this round';
-                 } else if (computerSelection === 'scissors') {
-                     return 'The computer wins this round';
-                 } else {
-                     return 'It\'s a tie';
-                 }
-             }
-             if (playerSelection === 'scissors') {
-                 if (computerSelection === 'rock') {
-                     return 'The computer wins this round';
-                 } else if (computerSelection === 'paper') {
-                     return 'You win this round';
-                 } else {
-                     return 'It\'s a tie';
-                 }
-             }
-         }
-
-         function playRound() {
-             let playerSelection = prompt('Choose rock, paper, or scissors').toLowerCase();
-             let computerSelection = computerPlay();
-             console.log(determineWinner(playerSelection, computerSelection));
-         }
-
-         console.log(playRound());
-
-          
-
-          
-       
-       
-
-      
-
+        let userSelection = "";
+ 
+        /*Create function that gets computer selection. The computer randomly chooses rock, paper or scissors. 1 will be rock, 2 will be paper, 3 will be scissors. */  
+        
+        function computerPlay() {
+            let randomNumber = Math.floor(Math.random() * 3);
+            if (randomNumber === 0) {
+                computerSelection = 'rock';
+            } else if (randomNumber === 1) {
+                computerSelection = 'paper';
+            } else if (randomNumber === 2) {
+                computerSelection = 'scissors';
+            } else {
+                console.log('something has gone wrong');
+            }
+            return computerSelection;
+        }
 
         
-      
-        /*
-          Repeat, best of 5
-          Announce who winner is */ 
+ 
+        /*Create function that gets user selection. The user inputs either rock, paper or scissors. The input will be converted to lowercase. */
+
+        function userPlay() {
+            let userSelection = prompt("Choose rock, paper, or scissors", "");
+            userSelection = userSelection.toLowerCase();
+            return userSelection;
+        }
+
+        
+        computerSelection = computerPlay();
+        userSelection = userPlay();
+        console.log(computerSelection);
+        console.log(userSelection);
+        
+        /*Create function that plays one round, using computer selection and user selection as parameters. */
+        
+        function playRound(userSelection, computerSelection) {
+            /*If computer and user chooses same weapon, it is a tie. Play again.*/
+            if (userSelection === computerSelection) {
+                return 'It\'s a tie. Play again';
+            } 
+              /*If computer chooses rock, and user chooses paper, user wins. Print "You win this round" Return User gets one point. 
+        If computer chooses rock, and user chooses scissors, computer wins. Print "The computer wins this round" Return computer gets one point.*/
+              else if (computerSelection === 'rock') {
+                if (userSelection === 'paper') {
+                    return 'You win this round';
+                } else if (userSelection === 'scissors') {
+                    return 'The computer wins this round';
+                } else {
+                    return 'Choose either rock, paper, or scissors';
+                }
+            } 
+              /*If computer chooses paper, and user chooses, rock, computer wins. Print "The computer wins this round" Return computer gets one point.
+        If computer chooses paper, and user chooses scissors, user wins. Print "You win this round" Return User gets one point.*/
+              else if (computerSelection === 'paper') {
+                if (userSelection === 'rock') {
+                    return 'The computer wins this round';
+                } else if (userSelection === 'scissors') {
+                    return 'You win this round';
+                } else {
+                    return 'Choose either rock, paper, or scissors';
+                }
+            } 
+              /*If computer chooses scissors, and user chooses rock, user wins. Print "You win this round" Return User gets one point.
+        If computer chooses scissors, and user chooses paper, computer wins. Print "The computer wins this round" Return computer gets one point.*/
+              else if (computerSelection === 'scissors') {
+                if (userSelection === 'rock') {
+                    return 'You win this round';
+                } else if (userSelection === 'paper') {
+                    return 'The computer wins this round'
+                } else {
+                    return 'Choose either rock, paper, or scissors';
+                }
+            } else {
+                return 'something has gone wrong'
+            }
+        }
+
+        console.log(playRound(userSelection, computerSelection));
+        
+
+        
+ 
+        
+        
+        
+ 
+        /*Create function that calls the round function until someone wins the game (either computer or user gets three points). 
+        Use a loop, with each loop adding the point to a total. */
+ 
+       /* Play another round, adding the score of each round to the totals, and continue playing until either computer or user gets three points. 
+        When computer or user gets three points "The computer wins the match!" or "You win the match!"
+        Option to restart match. */
+
     </script>
 </body>
+
 </html>
