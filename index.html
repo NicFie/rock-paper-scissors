@@ -50,55 +50,79 @@
         userSelection = userPlay();
         console.log(computerSelection);
         console.log(userSelection);
+
+        let userTotal = 0;
+        let computerTotal = 0;
         
         /*Create function that plays one round, using computer selection and user selection as parameters. */
         
         function playRound(userSelection, computerSelection) {
             /*If computer and user chooses same weapon, it is a tie. Play again.*/
             if (userSelection === computerSelection) {
-                return 'It\'s a tie. Play again';
+                console.log('It\'s a tie. Play again');
             } 
               /*If computer chooses rock, and user chooses paper, user wins. Print "You win this round" Return User gets one point. 
         If computer chooses rock, and user chooses scissors, computer wins. Print "The computer wins this round" Return computer gets one point.*/
               else if (computerSelection === 'rock') {
                 if (userSelection === 'paper') {
-                    return 'You win this round';
+                    console.log('You win this round');
+                    return userTotal += 1;
                 } else if (userSelection === 'scissors') {
-                    return 'The computer wins this round';
+                    console.log('The computer wins this round');
+                    return computerTotal += 1;
                 } else {
-                    return 'Choose either rock, paper, or scissors';
+                    console.log('Choose either rock, paper, or scissors');
                 }
             } 
               /*If computer chooses paper, and user chooses, rock, computer wins. Print "The computer wins this round" Return computer gets one point.
         If computer chooses paper, and user chooses scissors, user wins. Print "You win this round" Return User gets one point.*/
               else if (computerSelection === 'paper') {
                 if (userSelection === 'rock') {
-                    return 'The computer wins this round';
+                    console.log('The computer wins this round');
+                    return computerTotal += 1;
                 } else if (userSelection === 'scissors') {
-                    return 'You win this round';
+                    console.log('You win this round');
+                    return userTotal += 1;
                 } else {
-                    return 'Choose either rock, paper, or scissors';
+                    console.log('Choose either rock, paper, or scissors');
                 }
             } 
               /*If computer chooses scissors, and user chooses rock, user wins. Print "You win this round" Return User gets one point.
         If computer chooses scissors, and user chooses paper, computer wins. Print "The computer wins this round" Return computer gets one point.*/
               else if (computerSelection === 'scissors') {
                 if (userSelection === 'rock') {
-                    return 'You win this round';
+                    console.log('You win this round');
+                    return userTotal += 1;
                 } else if (userSelection === 'paper') {
-                    return 'The computer wins this round'
+                    console.log('The computer wins this round');
+                    return computerTotal += 1;
                 } else {
-                    return 'Choose either rock, paper, or scissors';
+                    console.log('Choose either rock, paper, or scissors');
                 }
             } else {
-                return 'something has gone wrong'
+                console.log('something has gone wrong');
             }
         }
 
-        console.log(playRound(userSelection, computerSelection));
+       /*playRound(userSelection, computerSelection);*/
+       console.log(userTotal);
+       console.log(computerTotal);
         
 
-        
+       function game() {
+           for (let i = 0; i < 5; i++) {
+               playRound(userSelection, computerSelection);
+               if (userTotal == 3) {
+                   console.log('You win the game!');
+               } else if (computerTotal == 3) {
+                   console.log('The computer wins the game!')
+               } else {
+                   console.log('Something went wrong');
+               }
+           }
+       }
+
+        game();
  
         
         
@@ -106,6 +130,8 @@
  
         /*Create function that calls the round function until someone wins the game (either computer or user gets three points). 
         Use a loop, with each loop adding the point to a total. */
+
+
  
        /* Play another round, adding the score of each round to the totals, and continue playing until either computer or user gets three points. 
         When computer or user gets three points "The computer wins the match!" or "You win the match!"
