@@ -39,17 +39,17 @@
  
         /*Create function that gets user selection. The user inputs either rock, paper or scissors. The input will be converted to lowercase. */
 
-        function userPlay() {
+        /*function userPlay() {
             let userSelection = prompt("Choose rock, paper, or scissors", "");
             userSelection = userSelection.toLowerCase();
             return userSelection;
-        }
+        }*/
 
         
-        computerSelection = computerPlay();
-        userSelection = userPlay();
-        console.log(computerSelection);
-        console.log(userSelection);
+        /*computerSelection = computerPlay();
+        /*userSelection = userPlay();*/
+        /*console.log(computerSelection);*/
+        /*console.log(userSelection);*/
 
         let userTotal = 0;
         let computerTotal = 0;
@@ -105,21 +105,44 @@
         }
 
        /*playRound(userSelection, computerSelection);*/
-       console.log(userTotal);
-       console.log(computerTotal);
+       /*console.log(userTotal);
+       console.log(computerTotal);*/
         
 
        function game() {
-           for (let i = 0; i < 5; i++) {
+           /*for (let i = 0; i < 5; i++) {
+               userSelection = prompt("Choose rock, paper, or scissors", "");
+               userSelection = userSelection.toLowerCase();
+               computerSelection = computerPlay();
                playRound(userSelection, computerSelection);
-               if (userTotal == 3) {
+               
+               console.log(computerSelection);
+               console.log(userTotal);
+               console.log(computerTotal);
+               
+            }*/
+            
+            do {
+               userSelection = prompt("Choose rock, paper, or scissors", "");
+               userSelection = userSelection.toLowerCase();
+               computerSelection = computerPlay();
+               playRound(userSelection, computerSelection);
+               
+               console.log(computerSelection);
+               console.log(userTotal);
+               console.log(computerTotal);
+            }
+
+            while (userTotal < 3 && computerTotal < 3);
+            
+            if (userTotal == 3) {
                    console.log('You win the game!');
-               } else if (computerTotal == 3) {
+            } else if (computerTotal == 3) {
                    console.log('The computer wins the game!')
-               } else {
+            } else {
                    console.log('Something went wrong');
-               }
-           }
+            }
+           
        }
 
         game();
