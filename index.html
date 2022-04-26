@@ -10,16 +10,10 @@
 
 <body>
     <script>
-        /*
-        Create computer selection variable. */
+       
         
         let computerSelection = "";
- 
-        /* Create user selection variable. */
-
         let userSelection = "";
- 
-        /*Create function that gets computer selection. The computer randomly chooses rock, paper or scissors. 0 will be rock, 1 will be paper, 2 will be scissors. */  
         
         function computerPlay() {
             let randomNumber = Math.floor(Math.random() * 3);
@@ -35,20 +29,15 @@
             return computerSelection;
         }
 
-        /*Create user total and computer total variables to keep track of score*/
         let userTotal = 0;
         let computerTotal = 0;
         
-        /*Create function that plays one round, using computer selection and user selection as parameters. */
         
         function playRound(userSelection, computerSelection) {
-            /*If computer and user chooses same weapon, it is a tie. Play again.*/
             if (userSelection === computerSelection) {
                 console.log('It\'s a tie. Play again');
             } 
-              /*If computer chooses rock, and user chooses paper, user wins. Print "You win this round" Return User gets one point. 
-        If computer chooses rock, and user chooses scissors, computer wins. Print "The computer wins this round" Return computer gets one point.
-        If user inputs something other than rock, paper, or scissors, ask them to choose one of these three weapons*/
+              
               else if (computerSelection === 'rock') {
                 if (userSelection === 'paper') {
                     console.log('You win this round');
@@ -60,9 +49,7 @@
                     console.log('Choose either rock, paper, or scissors');
                 }
             } 
-              /*If computer chooses paper, and user chooses, rock, computer wins. Print "The computer wins this round" Return computer gets one point.
-        If computer chooses paper, and user chooses scissors, user wins. Print "You win this round" Return User gets one point.
-        If user inputs something other than rock, paper, or scissors, ask them to choose one of these three weapons*/
+
               else if (computerSelection === 'paper') {
                 if (userSelection === 'rock') {
                     console.log('The computer wins this round');
@@ -74,9 +61,7 @@
                     console.log('Choose either rock, paper, or scissors');
                 }
             } 
-              /*If computer chooses scissors, and user chooses rock, user wins. Print "You win this round" Return User gets one point.
-        If computer chooses scissors, and user chooses paper, computer wins. Print "The computer wins this round" Return computer gets one point.
-        If user inputs something other than rock, paper, or scissors, ask them to choose one of these three weapons*/
+              
               else if (computerSelection === 'scissors') {
                 if (userSelection === 'rock') {
                     console.log('You win this round');
@@ -95,14 +80,8 @@
        
         
 
-       function game() {
-          
-        /*Create function that calls the round function until someone wins the game (either computer or user gets three points). 
-        Each round, add a point to user total or computer total, depending on who won. 
-        */
-            
+       function game() {            
             do {
-            /* The user inputs either rock, paper or scissors. The input will be converted to lowercase. */
                userSelection = prompt("Choose rock, paper, or scissors", "");
                userSelection = userSelection.toLowerCase();
                computerSelection = computerPlay();
@@ -112,7 +91,6 @@
                console.log(userTotal);
                console.log(computerTotal);
             }
-
             while (userTotal < 3 && computerTotal < 3);
             
             if (userTotal == 3) {
@@ -123,16 +101,9 @@
                    console.log('Something went wrong');
             }
            
-       }
+        }
 
         game();
- 
-        
-        
-        
- 
-
-
  
        /* Option to restart match. */
 
