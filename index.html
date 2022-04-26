@@ -19,7 +19,7 @@
 
         let userSelection = "";
  
-        /*Create function that gets computer selection. The computer randomly chooses rock, paper or scissors. 1 will be rock, 2 will be paper, 3 will be scissors. */  
+        /*Create function that gets computer selection. The computer randomly chooses rock, paper or scissors. 0 will be rock, 1 will be paper, 2 will be scissors. */  
         
         function computerPlay() {
             let randomNumber = Math.floor(Math.random() * 3);
@@ -35,22 +35,7 @@
             return computerSelection;
         }
 
-        
- 
-        /*Create function that gets user selection. The user inputs either rock, paper or scissors. The input will be converted to lowercase. */
-
-        /*function userPlay() {
-            let userSelection = prompt("Choose rock, paper, or scissors", "");
-            userSelection = userSelection.toLowerCase();
-            return userSelection;
-        }*/
-
-        
-        /*computerSelection = computerPlay();
-        /*userSelection = userPlay();*/
-        /*console.log(computerSelection);*/
-        /*console.log(userSelection);*/
-
+        /*Create user total and computer total variables to keep track of score*/
         let userTotal = 0;
         let computerTotal = 0;
         
@@ -62,7 +47,8 @@
                 console.log('It\'s a tie. Play again');
             } 
               /*If computer chooses rock, and user chooses paper, user wins. Print "You win this round" Return User gets one point. 
-        If computer chooses rock, and user chooses scissors, computer wins. Print "The computer wins this round" Return computer gets one point.*/
+        If computer chooses rock, and user chooses scissors, computer wins. Print "The computer wins this round" Return computer gets one point.
+        If user inputs something other than rock, paper, or scissors, ask them to choose one of these three weapons*/
               else if (computerSelection === 'rock') {
                 if (userSelection === 'paper') {
                     console.log('You win this round');
@@ -75,7 +61,8 @@
                 }
             } 
               /*If computer chooses paper, and user chooses, rock, computer wins. Print "The computer wins this round" Return computer gets one point.
-        If computer chooses paper, and user chooses scissors, user wins. Print "You win this round" Return User gets one point.*/
+        If computer chooses paper, and user chooses scissors, user wins. Print "You win this round" Return User gets one point.
+        If user inputs something other than rock, paper, or scissors, ask them to choose one of these three weapons*/
               else if (computerSelection === 'paper') {
                 if (userSelection === 'rock') {
                     console.log('The computer wins this round');
@@ -88,7 +75,8 @@
                 }
             } 
               /*If computer chooses scissors, and user chooses rock, user wins. Print "You win this round" Return User gets one point.
-        If computer chooses scissors, and user chooses paper, computer wins. Print "The computer wins this round" Return computer gets one point.*/
+        If computer chooses scissors, and user chooses paper, computer wins. Print "The computer wins this round" Return computer gets one point.
+        If user inputs something other than rock, paper, or scissors, ask them to choose one of these three weapons*/
               else if (computerSelection === 'scissors') {
                 if (userSelection === 'rock') {
                     console.log('You win this round');
@@ -104,25 +92,17 @@
             }
         }
 
-       /*playRound(userSelection, computerSelection);*/
-       /*console.log(userTotal);
-       console.log(computerTotal);*/
+       
         
 
        function game() {
-           /*for (let i = 0; i < 5; i++) {
-               userSelection = prompt("Choose rock, paper, or scissors", "");
-               userSelection = userSelection.toLowerCase();
-               computerSelection = computerPlay();
-               playRound(userSelection, computerSelection);
-               
-               console.log(computerSelection);
-               console.log(userTotal);
-               console.log(computerTotal);
-               
-            }*/
+          
+        /*Create function that calls the round function until someone wins the game (either computer or user gets three points). 
+        Each round, add a point to user total or computer total, depending on who won. 
+        */
             
             do {
+            /* The user inputs either rock, paper or scissors. The input will be converted to lowercase. */
                userSelection = prompt("Choose rock, paper, or scissors", "");
                userSelection = userSelection.toLowerCase();
                computerSelection = computerPlay();
@@ -151,14 +131,10 @@
         
         
  
-        /*Create function that calls the round function until someone wins the game (either computer or user gets three points). 
-        Use a loop, with each loop adding the point to a total. */
 
 
  
-       /* Play another round, adding the score of each round to the totals, and continue playing until either computer or user gets three points. 
-        When computer or user gets three points "The computer wins the match!" or "You win the match!"
-        Option to restart match. */
+       /* Option to restart match. */
 
     </script>
 </body>
