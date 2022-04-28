@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <style>
-        #play-again {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
     <main>
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <h1>Rock, Paper, Scissors</h1>
+        <div id="weapons">
+            <button id="rock"><img src="https://images.unsplash.com/photo-1525857597365-5f6dbff2e36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="rock"></button>
+            <button id="paper"><img src="https://images.unsplash.com/photo-1535350356005-fd52b3b524fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="paper"></button>
+            <button id="scissors"><img src="https://images.unsplash.com/photo-1621446113284-53ca198c7fa7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="scissors"></button>
+        </div>
         <div id="computer-choice"></div>
         <div id="results"></div>
         <div id="user-running-total"></div>
@@ -26,122 +26,7 @@
         <button id="play-again" type="button" onClick="playAgain()">Click here to play again</button>
 
     </main>
-    <script>
-       
-        
-        let computerSelection = "";
-        let userSelection = "";
-        let userTotal = 0;
-        let computerTotal = 0;
-        const computerChoice = document.querySelector('#computer-choice')
-        const results = document.querySelector('#results');
-        const userRunningTotal = document.querySelector('#user-running-total');
-        const computerRunningTotal = document.querySelector('#computer-running-total');
-        const instructions = document.querySelector('#instructions');
-        const playAgainButton = document.querySelector('#play-again')
-        
-        function computerPlay() {
-            let randomNumber = Math.floor(Math.random() * 3);
-            if (randomNumber === 0) {
-                computerSelection = 'rock';
-            } else if (randomNumber === 1) {
-                computerSelection = 'paper';
-            } else {
-                computerSelection = 'scissors';
-            }
-            return computerSelection;
-        }
-
-        
-        function playRound(userSelection, computerSelection) {
-            if (userSelection === computerSelection) {
-                results.textContent = 'It\'s a tie. Play again';
-            } 
-              
-              else if (computerSelection === 'rock') {
-                if (userSelection === 'paper') {
-                    results.textContent = 'You win this round';
-                    return userTotal += 1;
-                } else {
-                    results.textContent = 'The computer wins this round';
-                    return computerTotal += 1;
-                };
-            }
-             
-
-              else if (computerSelection === 'paper') {
-                if (userSelection === 'rock') {
-                    results.textContent = 'The computer wins this round';
-                    return computerTotal += 1;
-                } else {
-                    results.textContent = 'You win this round';
-                    return userTotal += 1;
-                }
-            } 
-              
-              else if (computerSelection === 'scissors') {
-                if (userSelection === 'rock') {
-                    results.textContent = 'You win this round';
-                    return userTotal += 1;
-                } else {
-                    results.textContent = 'The computer wins this round';
-                    return computerTotal += 1;
-                }
-            } 
-        }
-
-        function game() {
-            computerChoice.textContent = `The computer has chosen ${computerSelection}`;
-            userRunningTotal.textContent = `You have ${userTotal} points.`;
-            computerRunningTotal.textContent = `The computer has ${computerTotal} points.`;
-                if (userTotal == 3) {
-                   instructions.textContent = 'You win the game!';
-                   playAgainButton.style.display = "block";
-                } else if (computerTotal == 3) {
-                   instructions.textContent = 'The computer wins the game!'
-                   playAgainButton.style.display = "block";
-                } else {
-                   instructions.textContent = 'Pick again';
-                }
-        }
-        
-       
-        
-        
-        
-        document.getElementById("rock").addEventListener("click", function(){
-                computerPlay();
-                playRound('rock', computerSelection);
-                game();
-
-            })
-        document.getElementById("paper").addEventListener("click", function(){
-                computerPlay();
-                playRound('paper', computerSelection);
-                game();
-            })
-        document.getElementById("scissors").addEventListener("click", function(){
-                computerPlay();
-                playRound('scissors', computerSelection);
-                game();
-            })
-                  
-       
-        
- 
-       /* Option to restart match. */
-       function playAgain() {
-           userTotal = 0;
-           computerTotal = 0;
-           userRunningTotal.textContent ="";
-           computerRunningTotal.textContent = "";
-           instructions.textContent = "";
-           computerChoice.textContent = "";
-           results.textContent = "";
-           playAgainButton.style.display = "none";
-       }
-
-    </script>
+    <script src="script.js"></script> 
 </body>
 
 </html>
