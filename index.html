@@ -7,32 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Graduate&family=Press+Start+2P&display=swap" rel="stylesheet">
     
 </head>
 
 <body>
     <main>
-        <h1>Rock, Paper, Scissors</h1>
-        
-        <div id="weapons">
-            <button id="rock"><img src="https://images.unsplash.com/photo-1525857597365-5f6dbff2e36e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="rock"></button>
-            <button id="paper"><img src="https://images.unsplash.com/photo-1535350356005-fd52b3b524fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="paper"></button>
-            <button id="scissors"><img src="https://images.unsplash.com/photo-1503792501406-2c40da09e1e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80" alt="scissors"></button>
+        <header>
+            <h1>Rock, Paper, Scissors</h1>
+        </header>
+        <div class="content">
+            <p id="instructions">Choose either rock, paper or scissors to start the game!</p>
+            <div class="gameboard" id="weapons">
+                <button id="rock"><span>✊</span></button>
+                <button id="paper"><span>✋</span></button>
+                <button id="scissors"><span>✌️</span></button>
+            </div>
+            <div class="gameboard">
+                <div class="choices">
+                    <div id="user-choice"></div>
+                    <div class="emoji" id="user-image"></div>
+                </div>
+                <div class="choices" id="computer-choice-container">
+                    <div id="computer-choice"></div>
+                    <div class="emoji" id="computer-image"></div>
+                </div>
+            </div>
+            <div id="results"></div>
+            <div id="final-result"></div>
+            <div class="bottom-buttons">
+                <button id="next-round" type="button" onClick="nextRound()">Next round</button>
+                <button id="play-again" type="button" onClick="playAgain()">Click here to play again</button>
+            </div>
+            <div class="running-totals">
+                <div id="user-running-total"></div>
+                <div id="computer-running-total"></div>
+            </div>
+            
         </div>
-        <div>
-            <div id="user-choice"></div>
-            <div id="user-image"></div>
-        </div>
-        <div>
-            <div id="computer-choice"></div>
-            <div id="computer-image"></div>
-        </div>
-        <div id="results"></div>
-        <div id="instructions"></div>
-        <div id="user-running-total"></div>
-        <div id="computer-running-total"></div>
-        <button id="next-round" type="button" onClick="nextRound()">Next round</button>
-        <button id="play-again" type="button" onClick="playAgain()">Click here to play again</button>
+        <footer>
+            <h6>Made by NicFie</h6>
+        </footer>
 
     </main>
     <script src="script.js"></script> 
